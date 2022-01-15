@@ -5,8 +5,8 @@ export default function TaskForm() {
     const {addTask, clearList, editTask, editItem} = useContext(TaskListContext)
     const [title, setTitle] = useState("")
 
+    
     const handleSubmit = (e) => {
-        
         e.preventDefault()
         if(!editItem) {
             addTask(title)
