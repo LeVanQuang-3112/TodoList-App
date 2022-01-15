@@ -1,25 +1,23 @@
 import './App.css';
-import Home from "./components/Home"
-import {BrowserRouter as Router, Route, Switch} from "react-router-dom"
 import Header from './components/Header';
-import ProductDetail from './components/ProductDetail';
+import TaskForm from "./components/TaskForm"
+import TaskList from "./components/TaskList"
+import TaskListContextProvider from "./context/TaskListContext"
+
 
 function App() {
   return (
     <div className="App">
-      <Router>
+      <TaskListContextProvider>
         <Header/>
-        <Switch>
-        <Route exact path="/">
-      <Home />
-        </Route>
+        <div className="container">
+          <div className="todo__container">
+          <TaskForm/>
+          <TaskList/>
+        </div>
+        </div>
 
-        <Route path="/users/:id">
-      <ProductDetail />
-        </Route>
-        </Switch>
-
-      </Router>
+      </TaskListContextProvider>
     </div>
   );
 }
